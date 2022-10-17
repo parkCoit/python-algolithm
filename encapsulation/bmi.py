@@ -25,22 +25,41 @@ class Bmi(object):
         self.name = name
         self.cm = cm
         self.kg = kg
-    
+
+    def execute(self):
+        self.biman = self.get_biman()
+        self.get_biman()
+        self.print_biman()
+
     def get_bmi(self):
+        kg = self.kg
+        m = self.cm / 100
+        return kg / m ** 2
+
+    def get_biman(self):
+        biman = ""
+        bmi = self.get_bmi()
+        if(bmi >= 35) : biman = "고도 비만"
+        elif(bmi >= 25) : biman ="중도 비만"
+        elif(bmi >= 23) : biman = "과체중"
+        elif(bmi >= 18.5) : biman = "정상"
+        else: biman = "저체중"
+        self.biman = biman
+
+    def print_biman(self):
+        name = self.name
+        cm = self.cm
+        kg = self.kg
+        biman = self.biman
         title = "### 비만도 계산 ###"
         arster = "*"*30
         schema = "이름 키(cm) 몸무게(kg) 비만도"
-        answer = self.kg / ((self.cm/100)*(self.cm/100))
-        if(answer >= 35) : biman = "고도 비만"
-        elif(answer >= 25) : biman ="중도 비만"
-        elif(answer >= 23) : biman = "과체중"
-        elif(answer >= 18.5) : biman = "정상"
-        else: biman = "저체중"
-        print(f" {title} \n {arster} \n {schema} \n {arster} \n {name} {cm} {kg} {biman} \n {arster} ")
+        result = f" {name} {cm} {kg} {biman} "
+        print(f" {title} \n {arster} \n {schema} \n {arster} \n {result}  \n {arster} ")
 
 if __name__=="__main__":
     name = input("이름 :")
     cm = int(input("키 :"))
     kg = int(input("몸무게 :"))
     bmi = Bmi(name, cm, kg)
-    bmi.get_bmi()
+    bmi.execute()
