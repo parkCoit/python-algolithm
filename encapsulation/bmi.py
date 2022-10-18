@@ -21,7 +21,7 @@ if answer >= 35 :
             biman = "점"
 """
 class Bmi(object):
-    def __init__(self, name, cm, kg):
+    def __init__(self, name, cm, kg): # 객체 자신
         self.name = name
         self.cm = cm
         self.kg = kg
@@ -57,9 +57,13 @@ class Bmi(object):
         result = f" {name} {cm} {kg} {biman} "
         print(f" {title} \n {arster} \n {schema} \n {arster} \n {result}  \n {arster} ")
 
-if __name__=="__main__":
-    name = input("이름 :")
-    cm = int(input("키 :"))
-    kg = int(input("몸무게 :"))
-    bmi = Bmi(name, cm, kg)
-    bmi.execute()
+    @staticmethod # wrapping 데코레이터
+    def main():
+        name = input("이름 :")
+        cm = int(input("키 :"))
+        kg = int(input("몸무게 :"))
+        bmi = Bmi(name, cm, kg)
+        bmi.execute()
+Bmi.main()
+
+
