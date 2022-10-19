@@ -12,26 +12,23 @@
 """
 
 class Test(object):
-    def __init__(self, name , num , adr):
+    def __init__(self, name , ssn, adr) -> None:
         self.name = name
-        self.num = num
+        self.ssn = ssn
         self.adr = adr
 
     def set_age(self):
-        num = self.num
-        gender_cheaker = num[-1]
+        ssn = self.ssn
         
 
-    def print_person(self):
-        title = "### 자기소개어플 ###"
-        arster = "*"*30
-        print(f" {title} \n {arster} \n 이름 : {self.name} \n 나이 :   \n 성별 :   \n  주소 : {self.adr} ")
+    def print_test(self):
+        print(f"이름: {self.name} 나이: 25세 (만나이) 성별: 남성 주소: {self.adr}")
 
     def main():
         name = input("이름 :")
-        num = input(" 주민번호 : ")
-        adr = input( "주소 :" )
-        test = Test(name , num , adr)
-        test.print_person()
+        ssn = input("주민 번호 :")
+        adr = input("주소 :")
+        test = Test(name, ssn, adr)
+        test.print_test()
 
 Test.main()

@@ -1,5 +1,5 @@
 class Calculator(object): # class 상수, (object) = 상속 → Calculator가 객체가 됨 sava 된 객체
-    def __init__(self, num1, op, num2): # 생성자(객체 생성자)
+    def __init__(self, num1, op, num2): # 생성자(객체 생성자) 캡슐화
         self.num1 = num1    # 속성 프로퍼티 logic(a = 3 이런식)
         self.op = op
         self.num2 = num2    # 속성
@@ -27,7 +27,7 @@ class Calculator(object): # class 상수, (object) = 상속 → Calculator가 �
         num1 = int(input("숫자 : "))
         op = input("연산자 : ")
         num2 = int(input("숫자 : "))
-        calculator = Calculator(num1, op, num2) # Calculator의 인스턴스화(메모리로 이동) loding 된 객체 은닉화 위 코드 몰라얜
+        calculator = Calculator(num1, op, num2) # Calculator의 인스턴스화(메모리로 이동) loding 된 객체 은닉화 위 코드 몰라얜 , Calculator(num1, op, num2) -> 생성자(constructor) 인스턴스를 만듬
         calculator.cal() # Calculator = 인스턴스 객체
 
 Calculator.main()
