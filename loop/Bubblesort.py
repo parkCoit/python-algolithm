@@ -1,3 +1,4 @@
+from operator import length_hint
 from random import random
 
 import random
@@ -9,13 +10,13 @@ class Bubblesort(object):
         pass
 
     def extrac_random(self):
-        self.random = random.sample(range(1,100), 10)
+        return random.sample(range(1,100), 10)
 
     def sortArray(self):
-        for i in self.random :
-            if i % 2 == 0:
-                print(f"짝수 : {i}" )
-            else : print(f"홀수 : {i}")
+        random = self.extrac_random()
+        for i in random.index():
+            print(i)
+           
 
     def print_bubblesort(self):
         print(self.sortArray())
@@ -23,7 +24,6 @@ class Bubblesort(object):
     @staticmethod
     def main():
         bubblesort = Bubblesort()
-        bubblesort.extrac_random()
         bubblesort.print_bubblesort()
 
 Bubblesort.main()     

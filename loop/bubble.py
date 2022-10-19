@@ -2,11 +2,11 @@ class Bubble(object):
     def __init__(self) -> None:
         pass
 
-    def print_bubble(self):
-        print("버블")
+    def print(self):
+        pass
 
     def main():
         bubble = Bubble()
-        bubble.print_bubble()
+        bubble.print()
 
 Bubble.main()
