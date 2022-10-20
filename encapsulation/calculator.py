@@ -28,6 +28,6 @@ class Calculator(object): # class 상수, (object) = 상속 → Calculator가 �
         op = input("연산자 : ")
         num2 = int(input("숫자 : "))
         calculator = Calculator(num1, op, num2) # Calculator의 인스턴스화(메모리로 이동) loding 된 객체 은닉화 위 코드 몰라얜 , Calculator(num1, op, num2) -> 생성자(constructor) 인스턴스를 만듬
-        calculator.cal() # Calculator = 인스턴스 객체
+        calculator.cal() # Calculator = 인스턴스 객체   
 
 Calculator.main()

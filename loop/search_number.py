@@ -6,7 +6,8 @@ class SearchNumber(object):
         self.num = num
 
     def print(self):
-        rl1 = Randomlist().get_random(10 , 100 , 10)
+        rl = Randomlist()
+        rl1 = rl.get_random(10 , 100 , 10)
         print(rl1)
         for i in rl1:
             if i %  self.num == 0:

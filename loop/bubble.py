@@ -1,10 +1,21 @@
+from randomlist import Randomlist
+
 class Bubble(object):
     def __init__(self) -> None:
         pass
 
     def print(self):
-        pass
+        rl = Randomlist()
+        ls = rl.get_random(10, 100, 10)
+        print(ls)
+        for i in range(len(ls)-1):
+            for j in range(len(ls)-1):
+                if ls[j] > ls[j+1] :
+                    ls[j], ls[j+1] = ls[j+1], ls[j]
+                    
+            print(ls)
 
+    @staticmethod
     def main():
         bubble = Bubble()
         bubble.print()
