@@ -14,36 +14,21 @@
 이름 국어 영어 수학 총점 평균 학점
 *******************************
 홍길동 90 90 92 272 90.6 A
+유관순 90 90 92 272 90.6 A
+이순신 90 90 92 272 90.6 A
 ********************************
 """
-class Grade(object):
+class Grades(object):
     def __init__(self, name , ko , en , ma):
         self.name = name
         self.ko = ko
         self.en = en
         self.ma = ma
-
-    def execute(self):
-        self.answer = self.get_answer()
-        self.get_answer()
-        self.va = self.get_va()
-        self.get_va()
-        self.get_grade()
-        self.print_grade()
-
-    def get_answer(self):
-        ko = self.ko
-        en = self.en
-        ma = self.ma
-        return ko + en + ma
-
-    def get_va(self):
-        self.answer = self.get_answer()
-        return self.answer/3
-
+        self.total = ko + en + ma
+        self.va = self.total / 3
 
     def get_grade(self):
-        va = self.get_va()
+        va = self.va
         grade = ""
         if va >= 90:
             grade = "A 학점"
@@ -56,27 +41,53 @@ class Grade(object):
         elif va >= 50:
             grade = "E 학점"
         else: grade = "F 학점"
-        self.grade = grade
+        return grade
 
     def print_grade(self):
-        grade = self.grade
-        name = self.name
-        ko = self.ko
-        en = self.en
-        ma = self.ma
-        answer = self.answer
-        va = self.va
-        title = "### 성적표 ###"
-        arster = "*"*30
-        ash = "이름 국어 영어 수학 총점 평균 학점"
-        she = f" {name} {ko} {en} {ma} {answer} {va}  "
-        print(f" {title} \n {arster} \n {ash} \n {she} {grade} \n {arster}  ")
+        print(f" {self.name} {self.ko} {self.en} {self.ko} {self.total} {self.va} {self.get_grade()} ")
 
-    def main():
+    @staticmethod
+    def new_grade():
         name = input("이름 :")
         ko = int(input("국어 :"))
         en = int(input("영어 :"))
         ma = int(input(" 수학 : "))
-        man = Grade(name, ko , en , ma)
-        man.execute()
-Grade.main()
+        return Grades(name, ko, en, ma) # Grades() < 생성자에 값을 직접 입력할 수 있음
+
+    @staticmethod
+    def print_menu():
+        print(" 1. 성적 등록 ")
+        print(" 2. 성적 결과 ")
+        print(" 3. 성적 삭제 ")
+        print( " 4. 종료 " )
+        menu = input(" 선택 : ")
+        return int(menu)
+
+    @staticmethod
+    def get_grades(ls):
+        for i in ls :
+            i.print_grade()
+    
+    @staticmethod
+    def main():
+        ls = []
+        while True :
+            menu = Grades.print_menu()
+            if menu == 1 :
+                print(" ### 성적등록 ### ")
+                ls.append(Grades.new_grade())
+            elif menu == 2 :
+                print("### 성적표 ###" )
+                print("*"*30)
+                print("이름 국어 영어 수학 총점 평균 학점")
+                Grades.get_grades(ls)
+                print("*"*30)
+            elif menu == 3 :
+                print(" ### 성적 삭제 ### ")
+            elif menu == 4 :
+                print(" ### 종료 ### ")
+                break
+
+
+
+Grades.main()
