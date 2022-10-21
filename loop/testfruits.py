@@ -17,7 +17,7 @@ class Fruits(object):
         self.menu = ["바나나", "사과", "망고"]
         self.search = search
     
-    def getAnswer(self):
+    def get_answer(self):
         num = 1
         answer = ""
         for i in self.menu:
@@ -26,7 +26,7 @@ class Fruits(object):
             answer += fruit
         return answer
         
-    def searchFruits(self):
+    def search_fruits(self):
         li = []
         for i in self.menu:
             if self.search in i:
@@ -34,11 +34,11 @@ class Fruits(object):
         return li
 
     def print_menu(self):
-        print("### 과일번호표 ###")
+        print("### 과일 번호표 ###")
         print("********************************")
-        print(f"{self.getAnswer()}********************************")
-        print(f"구매할과일: {self.search}")
-        print(self.searchFruits())
+        print(f"{self.get_answer()}********************************")
+        print(f"구매할 과일: {self.search}")
+        print(self.search_fruits())
     
     @staticmethod
     def main():

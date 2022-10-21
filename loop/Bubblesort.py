@@ -1,9 +1,7 @@
-from operator import length_hint
-from random import random
 
 import random
 
-from scipy.misc import derivative
+
 
 class Bubblesort(object):
     def __init__(self) -> None:
@@ -14,8 +12,7 @@ class Bubblesort(object):
 
     def sortArray(self):
         random = self.extrac_random()
-        for i in random.index():
-            print(i)
+        [print(i) for i in random.index()]
            
 
     def print_bubblesort(self):

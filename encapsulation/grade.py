@@ -1,6 +1,6 @@
 """
-국어. 영어, 수학점수를 입력받아서 학점을 출력하는 프로그램을 완성하시오.
-각 과목 점수는 0 ~ 100 사이이다.
+국어. 영어, 수학점수를 입력 받아서 학점을 출력하는 프로그램을 완성하시오.
+각 과목 점수는 0 ~ 100 사이 이다.
 평균에 따라 다음과 같이 학점이 결정된다
 90이상은 A학점
 80이상은 B학점
@@ -51,7 +51,7 @@ class Grades(object):
         name = input("이름 :")
         ko = int(input("국어 :"))
         en = int(input("영어 :"))
-        ma = int(input(" 수학 : "))
+        ma = int(input("수학 :"))
         return Grades(name, ko, en, ma) # Grades() < 생성자에 값을 직접 입력할 수 있음
 
     @staticmethod
@@ -74,7 +74,7 @@ class Grades(object):
         while True :
             menu = Grades.print_menu()
             if menu == 1 :
-                print(" ### 성적등록 ### ")
+                print(" ### 성적 등록 ### ")
                 ls.append(Grades.new_grade())
             elif menu == 2 :
                 print("### 성적표 ###" )
@@ -87,7 +87,5 @@ class Grades(object):
             elif menu == 4 :
                 print(" ### 종료 ### ")
                 break
-
-
 
 Grades.main()

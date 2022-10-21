@@ -32,7 +32,7 @@ class Fruits(object):
 
 
     def print_menu(self):
-        print("### 과일번호표 ###")
+        print("### 과일 번호표 ###")
         num = 1
         for i in self.menu:
             print(f"{num}번 과일 : {i}")

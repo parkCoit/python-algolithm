@@ -1,34 +1,53 @@
-"""
-이름, 주민번호 (950101-1), 주소를 입력받아서 
-회원명부를 관리하는 어플을 제작하고자 한다.
-출력되는 결과는 다음과 같다.
-### 자기소개어플 ###
-********************************
-이름: 홍길동
-나이: 25세 (만나이)
-성별: 남성
-주소: 서울
-********************************
-"""
 
 class Test(object):
-    def __init__(self, name , ssn, adr) -> None:
+    def __init__(self, id, pw, name):
+        self.id = id
+        self.pw = pw
         self.name = name
-        self.ssn = ssn
-        self.adr = adr
 
-    def set_age(self):
-        ssn = self.ssn
-        
+    def print_member(self):
+        print(f" {self.id} {self.name} {self.name} ")
 
-    def print_test(self):
-        print(f"이름: {self.name} 나이: 25세 (만나이) 성별: 남성 주소: {self.adr}")
+    @staticmethod
+    def print_menu():
+        print("1. 회원 가입")
+        print("2. 목록 ")
+        print("3. 삭제 ")
+        print("4. 종료 ")
+        return int(input(" 선택 : "))
+    @staticmethod
+    def new_member():
+        id = input(" 아이디 : ")
+        pw = input(" 비밀번호 : ")
+        name = input(" 이름 : ")
+        return Test(id, pw, name)
 
+    @staticmethod
+    def get_member(ls):
+        [i.print_member() for i in ls] # for i in ls : i.print_member() 과 같음
+
+    @staticmethod
+    def delete_member():
+        pass
+
+    @staticmethod
     def main():
-        name = input("이름 :")
-        ssn = input("주민 번호 :")
-        adr = input("주소 :")
-        test = Test(name, ssn, adr)
-        test.print_test()
+        ls = []
+        while True :
+            menu = Test.print_menu()
+            if menu == 1:
+                print("### 회원 가입 ###")
+                ls.append(Test.new_member())
+            elif menu == 2:
+                print("### 목록 ###")
+                Test.get_member(ls)
+            elif menu == 3:
+                print("### 삭제 ###")
+                Test.delete_member()
+            elif menu == 4:
+                print("### 종료 ###")
+                break
+            else : print("잘못 된 값")
+
 
 Test.main()

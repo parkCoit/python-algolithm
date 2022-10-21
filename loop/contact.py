@@ -9,22 +9,22 @@ from typing_extensions import Self
 
 
 class Contact(object):
-    def __init__(self, name , pnum, mail, adr) -> None:
+    def __init__(self, name , num, mail, adr) -> None:
         self.name = name
-        self.pnum = pnum
+        self.num = num
         self.mail = mail
         self.adr = adr
 
     def print_info(self):
-        print(f" {self.name}, {self.pnum}, {self.mail}, {self.adr} ")
+        print(f" {self.name}, {self.num}, {self.mail}, {self.adr} ")
         
     @staticmethod 
     def new_contact():  # 인스턴스 new 새로만든다 이런느낌
         name = input(" 이름 : ")        # 1회만 사용
-        pnum = input( "전화 번호 : ")
+        num = input( "전화 번호 : ")
         mail = input(" 이메일 : ")
         adr = input(" 주소 : ")
-        return Contact(name, pnum, mail, adr) # 생성자
+        return Contact(name, num, mail, adr) # 생성자
 
 
 
@@ -39,8 +39,18 @@ class Contact(object):
     
     @staticmethod
     def print_contacts(ls):
-        for i in ls :
-            i.print_info()
+        [i.print_info() for i in ls] # for i in ls : i.print_info() 와 같다
+
+
+    @staticmethod
+    def delete_contact(ls, name):
+        for i, j in enumerate(ls):
+            if j.name == name:
+                del ls[i]
+
+
+
+
 
     @staticmethod
     def main():
@@ -50,13 +60,16 @@ class Contact(object):
             if menu == 1:
                 print(" ### 연락처 등록 ###")
                 contact = Contact.new_contact() # contact는 instence Contact 는 class
-                ls.append(contact) # append(첨부하다)는 ls 안에 contact 를 첨부한다는 뜻
+                ls.append(contact) # append(첨부 하다)는 ls 안에 contact를 첨부 한다는 뜻
             elif menu == 2:
-                print(" ### 연락처 출력 ###")
-                Contact.print_contacts(ls) # 복수형이라 contacts 로 사용함 한번에 출력하니(이건 디테일 습관으로)
+                print(" ### 연락처 목록 ###")
+                Contact.print_contacts(ls) # 복수형 이라 contacts 로 사용함 한번에 출력 하니(이건 디테일 습관으로...)
             elif menu == 3:
                 print(" ### 연락처 삭제 ###")
+                Contact.delete_contact(ls, input(" 이름: "))
             elif menu == 4:
-                print(" 주소록 어플을 종료합니다 ")
+                print(" 주소록 어플을 종료 합니다 ")
+                break
+            else : print("잘못된 값")
 
 Contact.main()
