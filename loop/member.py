@@ -35,8 +35,8 @@ class Member(object):
         [i.print_member() for i in ls]
 
     @staticmethod
-    def delete_member():
-        pass
+    def delete_member(ls, id):
+         del ls[[ i if j.id == id else print("no") for i, j in enumerate(ls) ][0]]
 
 
 
@@ -53,7 +53,7 @@ class Member(object):
                 Member.get_member(ls)
             elif menu == 3 :
                 print("### 탈퇴 ###")
-                Member.delete_member()
+                Member.delete_member(ls, input("아이디 :"))
             elif menu == 4 :
                 print("### 종료 ###")
             else :
